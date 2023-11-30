@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
-const routes = [
+const routes = [ //r 객체 단위로, 라우팅한걸 원하는만큼 추가
   {
-    path: '/',
+    path: '/',    // 이거 없으면 오류난다함 그냥 기본 베이스로 두고 작업
     name: 'home',
     component: HomeView
   },
