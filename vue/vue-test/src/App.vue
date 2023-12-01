@@ -2,7 +2,11 @@
   <VueComponent />
   <nav>
     <router-link to="/">Home</router-link> |
-    <router-link to="/dataBinding">DataBinding</router-link> <!--to 가 경로 -->
+    <router-link to="/dataBinding">DataBinding</router-link> | <!--to 가 경로 -->
+    <router-link to="/listBinding">ListBinding</router-link> |
+    <router-link to="/ifBinding">IFBinding</router-link> |
+    <router-link to="/onEvent">onEvent</router-link> |
+    <router-link to="/options">Options</router-link>
   </nav>
   <router-view/>
 </template>
