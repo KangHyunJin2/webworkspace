@@ -40,7 +40,7 @@ export default {
         }
     },
     created(){
-        // 해당 컴포넌트가 초기화할 데이터관련 진행
+        // 해당 컴포넌트가 처음부터 데이터를 들고 있어야 할 때 사용(초기화할 데이터 관련 진행)
         this.getUserList(); //this.
     },
     methods : {

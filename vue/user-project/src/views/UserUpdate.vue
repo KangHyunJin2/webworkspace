@@ -65,8 +65,8 @@ import axios from 'axios';
 export default {
     data(){
         return{
-            searchNo : '',
-            userInfo : {}
+            searchNo : '', //해당 객체 불러와야 해서 번호 필요
+            userInfo : {}  // 객체 하나를 다시 만들어서 put 해야함
         }
     },
     created(){
@@ -94,7 +94,7 @@ export default {
                 "param" : this.userInfo, // 데이터를 넘겨줄때 param이랑 userInfo를 같이 넘겨줘야한다
             };
             let result = await axios
-            .put(`/api/users/${this.userInfo.user_id}`, data)
+            .put(`/api/users/${this.userInfo.user_id}`, data) // 위에서 readonly 라고 써서 이렇게 쓰는건 됨
             .catch(err => console.log(err));
 
             console.log(result.data);

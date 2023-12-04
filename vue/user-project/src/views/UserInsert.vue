@@ -69,11 +69,11 @@ export default {
         }
     },
     created (){
-        this.userInfo.user_date = this.getToday();
+        this.userInfo.user_date = this.getToday(); //이건 오늘날짜 나오게하는 것
     },
     methods : {
         async insertInfo(){ 
-            if(!this.validation()) return; //앞에 느낌표를 붙여서 강제로 주입
+            if(!this.validation()) return; //앞에 느낌표를 붙여서 강제로 주입 false 일때  return 실행을 시킬수 있어서
 
             let data = {
                 "param" : this.userInfo // 데이터를 넘겨줄때 param이랑 userInfo를 같이 넘겨줘야한다

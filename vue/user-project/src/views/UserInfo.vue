@@ -46,7 +46,7 @@ import axios from 'axios';
 export default {
     data(){
         return {
-          searchNo : '',
+          searchNo : '', //라우터가 넘긴 값을 받을 프로퍼티 필요
           userInfo : {}
         }
     },
