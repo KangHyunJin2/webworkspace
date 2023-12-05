@@ -56,7 +56,12 @@ export default {
     },
     methods : {
         addCart(){
-            this.$store.commit('addProduct', this.productInfo) //메서드를 불러올때 commit을 통해 불러옴 불러온 값으로 두번째 매개변수
+            let obj ={
+                product_id : this.productInfo.product_id,
+                product_name : this.productInfo.product_name,
+                category : this.productInfo.category
+            }
+            this.$store.commit('addProduct', obj) //메서드를 불러올때 commit을 통해 불러옴 불러온 값으로 두번째 매개변수
         }
     }
 };
