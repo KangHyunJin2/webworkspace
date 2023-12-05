@@ -20,7 +20,7 @@ import {reactive, ref, computed, watch} from 'vue';
 // watch 옵션 : watch
 // methods 옵션 : 내부에 함수로 선언 하면 된다
 
-const author = reactive({ //반응형 데이터를 만들어 주는 역할
+const author = reactive({ // reactive반응형 데이터를 만들어 주는 역할
     // 무조건 객체타입 배열타입으로만 선언이 가능
     name : 'John Doe',
     books : [
@@ -34,7 +34,7 @@ const title = ref('제목을 입력해주세요'); // title.value 적절한 위�
 const isWrited = computed(() =>{
     return author.books.length > 0 ? 'Yes' : 'NO';
 });
-
+// 콜백 전에 있던값 , 변환된 값 두가지 모두 배개변수로 받을수있음
 watch(author.books, (info) =>{
         console.log(info[info.length-1]);
 });

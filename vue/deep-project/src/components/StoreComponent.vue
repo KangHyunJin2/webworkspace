@@ -46,12 +46,13 @@ export default {
             },
         };
     },
-    computed : {
+
+    computed : { // store값 불러오기
         productList(){
-            return this.$store.state.cart;
+            return this.$store.state.cart; //$store >> 저장소 불러옴
         },
         total(){
-            return this.$store.getters.cartCount;
+            return this.$store.getters.cartCount; //getters로 정의되어있는거는 getters로 불러오기
         }
     },
     methods : {

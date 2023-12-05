@@ -1,5 +1,6 @@
 <template>
   <table>
+    <!--mixin 함수 불러옴 main.js 에 전역으로 등록되어있음-->
     <tr>
         {{ $dateFormat('2023/12/05', 'yyyy-MM-dd') }}
     </tr>
@@ -39,18 +40,18 @@ export default {
             default : 0,
         },
         writer : {
-            type : [String, Object], // 두가지 타입
+            type : [String, Object], // 두가지 타입 허용이 될 경우 배열로 정의
             default : function(){
                 //함수할때, 리턴되는 대상이 객체 A 만약 배열이라면 배열로
                 return { first : 'Adward', second : 'Ian'}
             }
         },
         regdate : {
-            required : true,
+            required : true,    // 무조건 넘어와야하는 값, 부모에게 요구함
             validator : function(value){
                 // yyyy-MM-dd
                 let format = /[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
-                return !(value.match(format) == null);
+                return !(value.match(format) == null); //널이 아니면 된다 value가 우리가 정한 조건이 맞는 경우
             }
         },
         content : String
@@ -62,13 +63,13 @@ export default {
     },
     methods : {
         updateInfo(){
-            //이벤트 전달 방식
+            //이벤트 전달 방식 , 자식이벤트 부모에게 넘겨주는 코드
             this.$emit('update-info', this.readInfo);
         }
     },
     watch : {  
         readInfo(){
-            //데이터 전달 방식
+            //데이터 전달 방식, 특정 프로퍼티 변화를 감지해서 변경 되면 부모에게 전달
             this.$emit('update-info');
         }
     }

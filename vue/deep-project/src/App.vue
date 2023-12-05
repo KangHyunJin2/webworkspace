@@ -1,6 +1,7 @@
 <template>
   <div>
   <input type="text" v-model.lazy="selected" v-focus="isFoucsed"/>
+  <!-- 선택된 컨포넌트 열리고 , v-focus라는 디렉티브를 생성함 main.js-->
   <component v-bind:is="selected"></component>
   </div>
 </template>
@@ -16,7 +17,7 @@ export default {
   data(){
     return {
       selected : 'PropsCom',
-      isFoucsed : false
+      isFoucsed : false //true 하면 변경됨
     };
   },
   components : {

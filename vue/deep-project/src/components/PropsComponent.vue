@@ -15,8 +15,8 @@
 </template>
 <script>
 //PropsComponent.vue : 삐빅 부모입니다..
-import PageTitle from './PageTitle.vue'
-import PageContent from './PageContent.vue'
+import PageTitle from './PageTitle.vue'  // 자식 컴포넌트
+import PageContent from './PageContent.vue' //자식 컴포넌트
 import RefCom from './RefComponent.vue'
 
 export default {
@@ -28,11 +28,11 @@ export default {
                 count : 10,
                 writer : 'Adward',
                 regdate : '2023/12/05',
-                content : '내용 없음'
+                content : '내용 없음' //객체 형태로 바인드 연결 내용이 많을때 자식 컴포넌트에 정의가 되어있어야한다 있어야함   props: ["title", "count", "writer", "date", "content"] 매핑됨
             }
         }
     },
-    components : {
+    components : {  // 쫘식들 등록
         PageTitle,
         PageContent,
         RefCom
@@ -44,7 +44,7 @@ export default {
         childHandler(){
             // this.$refs.child.content = 200; // refs 속성으로 직접적으로 값을 줘도 된다 // 이렇게 스트링 문자로 주면 직관적으로 볼수있다. 숫자가능
             // this.$refs.child.plusCount();
-            this.$refs.child.$refs.cBtn.click(); //
+            this.$refs.child.$refs.cBtn.click(); // <button ref="cbtn" @click="plusCount">더하기</button> 접근가능
         }
     },
 }

@@ -16,7 +16,7 @@ createApp(App)
     updated(el, binding, vnode, prevVnode){
         console.log('updated', el, binding, vnode, prevVnode);
         if(binding.value){
-            el.style.color='red';
+            el.style.color='red'; // input 글 색 바꾸기
         } else{
             el.style.color='black';
         }

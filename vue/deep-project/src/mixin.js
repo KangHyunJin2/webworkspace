@@ -1,5 +1,7 @@
 //mixin.js
 
+//공통으로 사용하는 함수들 모아 놓음 여기에
+// 필요하면 import 해서 모듈 가져오기
 export default { 
     methods : {
         $dateFormat(value, format){
