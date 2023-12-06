@@ -62,7 +62,7 @@ export default {
                 product_name : this.productInfo.product_name,
                 category : this.productInfo.category
             }
-            this.$store.commit('addProduct', obj) //메서드를 불러올때 commit을 통해 불러옴 불러온 값으로 두번째 매개변수
+            this.$store.dispatch('addProduct', obj) //메서드를 불러올때 actions 에 dispatch을 통해 불러옴 불러온 값으로 두번째 매개변수 
         }
     }
 };
