@@ -73,14 +73,18 @@ app.put('/emps/:emp_no', async(req,res)=>{
     res.send(result);
 });
 
-app.delete('/emps/:emp_no', async(req,res)=>{ //delete 이건 기능적으로 delete를 쓴다 내부적으로는 실제 업데이트로 진행이 된다
+app.delete('/emps/:emp_no', async(req,res)=>{ 
+    //delete 실행하는 쿼리문이 중요한게 아니고 화면 입장에서는 삭제한다고 보기 때문에, 화면에서 진행하는 기능과 실제 db에서 하는 기능에는 차이가 있을수 있다
     //put, post 는 body 허용
     //delete 는 기본적으로 body가 없다
     // express와 같이 몇가지는 body 허용을 지원하고 있다
 
-    // 첫번째 방식 사용자가 퇴사날짜를 저장하는 방식 -> body 필요
-    // 두번째 방식 오늘 날짜로 강제 처리하는 방식
-    // 물음표가 1개가 아니고 2개(2개 이상이면 무조건 배열로)
+    // 1 방식 사용자가 퇴사날짜를 저장하는 방식 -> body 필요
+    // 2 방식 오늘 날짜로 강제 처리하는 방식
+    // 물음표가 1개가 아니고 2개(2개 이상이면 무조건 배열로)여서 배열임
+    // object인지 아닌지 : 하나의 물음표를 봤을 때 커럶이 명시되어있는지 봐야함
+    // object는 컬럼이 명확하지 않아서, 두번째는 명확해서 그냥 값
+    // 따라서 지금 delete는 쿼리문을 봤을 때 지정되어있기 때문에 그냥 값
     let data = [req.body.param.to_date, req.params.emp_no]
     console.log(data);
     let result = await mysql.query('deptEmp', 'update', data);
