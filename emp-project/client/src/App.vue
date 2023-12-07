@@ -10,7 +10,7 @@ import Header from './layouts/HeaderComponent.vue';
 import Footer from './layouts/FooterComponent.vue';
 
 export default{  
-  components : { //자식 컴포넌트 다 등록
+  components : { //자식 컴포넌트 다 등록 임
     Header,
     Footer,
   }
