@@ -36,6 +36,7 @@ FROM employees e JOIN dept_emp h
 WHERE h.to_date = CAST('9999-01-01' AS DATE)
 AND s.to_date = CAST('9999-01-01' AS DATE)
 AND e.emp_no = ?`,
+
 insert : ` INSERT INTO employees SET ?`, //컬럼정보없이 set다음 ? 형태는 객체가 넘어가야한다 그래서 let empData = {};이렇게
 update : `UPDATE employees SET? WHERE emp_no =?`, 
 delete : ` UPDATE dept_emp
@@ -45,8 +46,9 @@ delete : ` UPDATE dept_emp
 
 let dept = {
     list : `
-    SELECT dept_no FROM departments
-    `
+    SELECT * FROM departments
+    `,
+    insert : `INSERT INTO departments SET ?`
 }
 let sal = {
     insert : `

@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import EmpList from '../views/EmpList.vue'
+import EmpInfo from '../views/EmpInfo.vue'
+import EmpInsert from '../views/EmpInsert.vue'
+import EmpForm from '../views/EmpFormView.vue'
 
 const routes = [
   {
@@ -7,6 +10,21 @@ const routes = [
     name: 'empList',
     component: EmpList
   },
+  {
+    path: '/empInfo',
+    name: 'empInfo',
+    component: EmpInfo
+  },
+  {
+    path: '/empInsert',
+    name: 'empInsert',
+    component: EmpInsert
+  },
+  {
+    path: '/empForm',
+    name: 'empForm',
+    component: EmpForm
+  }
 ]
 
 const router = createRouter({

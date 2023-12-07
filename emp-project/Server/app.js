@@ -35,7 +35,7 @@ const salariesTable=['emp_no','salary','from_date','to_date'];
 //등록
 app.post('/emps', async (req, res) => {
     let empInfo = req.body.param;
-
+    console.log(empInfo)
     let empData = {};
     //for 문이 지금 자바스크립트이기때문에 가능함
     for(let column of empTable){         // let column = 'emp_no'
@@ -91,6 +91,11 @@ app.delete('/emps/:emp_no', async(req,res)=>{
     res.send(result);
 });
 
+app.get('/depts', async(req, res) => {
+    let result = await mysql.query('dept','list');
+    res.send(result)
+})
+
 // //수정
 // app.put('/emps/:emp_no',async (req,res)=>{
 //     let datas = [req.body.param, req.params.emp_no];
@@ -104,3 +109,4 @@ app.delete('/emps/:emp_no', async(req,res)=>{
 //     let result = await mysql.query('emp','delete',data);
 //     res.send(result);
 // });
+
