@@ -33,10 +33,19 @@
                 </tbody>
             </table>
         </div>
+        <div class="row">
+            <!--해당 게시글의 댓글이 있다면 조건문으로 실행-->
+            <CommentList v-if="boardInfo.comment > 0 " v-bind:bno="boardInfo.no" />
+            <!--해당 게시글에 댓글이 존재하지 않는다면-->
+            <div v-else class="card text-center">
+                댓글 없음
+            </div>
+        </div>
     </div>
 </template>
 <script>
 import axios from 'axios';
+import CommentList from '../components/ComponetList.vue' // 부모 자식간에 라이프사이클 훅 주의 
 
 export default {
     data() {
@@ -44,6 +53,9 @@ export default {
             searchNo: '',
             boardInfo: {}
         };
+    },
+     components : {
+        CommentList,
     },
     created() {
         //baordList 에서 넘긴다

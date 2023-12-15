@@ -8,6 +8,9 @@ app.use(
   })
 );
 
+app.use(express.urlencoded({ extended : false })); //form
+
+
 const server = app.listen(3000, () => {
   console.log("Server started. port 3000.");
 });
@@ -40,3 +43,10 @@ app.put("/boards/:bno", async (request, res) =>{
   let data = [request.body.param, request.params.bno]; 
   res.send((await db.connection("boardUpdate", data)));
 })
+
+//해당 게시글의 댓글 조회
+app.get('/comments', async(request, res) =>{ // rest 방식 일때 불러오기 힘들다. 필요에 따라서 
+  //querystring => ?key=value&key=value...
+  let data = request.query.bno; // 우리가 넘겨줄 키값
+  res.send((await db.connection("commentList", data)));
+});
