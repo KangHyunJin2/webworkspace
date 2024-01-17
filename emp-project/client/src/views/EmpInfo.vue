@@ -37,7 +37,67 @@
             <router-link to="/" class="btn btn-success">목록</router-link> <!-- a tag 버튼 기반 라우터 링크로 처리하는게 가장 쉽다-->
             <button class="btn btn-warning" @click="deleteInfo(empInfo.emp_no)">삭제</button>
         </div>
+
+
+        <div>
+             <ul class="pagination-frame">
+    <li @click="changeCurrentPage(
+      (currentPage - pageCount) > 1 ? currentPage - pageCount : 1
+    )">
+      <a class="page-text">
+        〈〈
+      </a>
+    </li>
+    <li 
+      class="page-left-btn"
+      @click="changeCurrentPage(
+        (currentPage - 1) > 1 ? currentPage - 1 : 1
+      )"
+    >
+      <a class="page-text">
+        〈
+      </a>
+    </li>
+    
+    <li 
+      v-for="n in paginationUnits"
+      :key="n"
+      :class="[n === currentPage ? 'selected-page' : '', 'page-btn']"
+      @click="changeCurrentPage(n)"
+    >
+      <a class="page-text">
+        {{ n }}
+      </a>
+    </li>
+    
+    <li 
+      class="page-right-btn"
+      @click="changeCurrentPage(
+        (currentPage + 1) < maxPage ? currentPage + 1 : maxPage
+      )"
+    >
+      <a class="page-text">
+        〉
+      </a>
+    </li>
+    <li @click="changeCurrentPage(
+      (currentPage + pageCount) < maxPage ? currentPage + pageCount : maxPage
+    )">
+      <a class="page-text">
+        〉〉
+      </a>
+    </li>
+  </ul>
+        </div>
     </div>
+
+
+
+    
+
+
+
+
 </template>
 
 <script>

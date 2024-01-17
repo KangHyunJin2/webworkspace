@@ -6,7 +6,7 @@ module.exports = {
                 ORDER BY b.no`,
     boardInfo : `SELECT no, title, writer, content, created_date, updated_date, (SELECT COUNT(no) FROM t_comment_board WHERE bno = t_board_board.no) as comment
                 FROM t_board_board
-                WHERE no = ?`    , // ? 가 하나면 배열 아님 하나면 단일값
+                WHERE no = ?`    , // ? 가 하나면 배열 아님 칼럼이 명시되어 있으면 단일값
     boardInsert : `INSERT INTO t_board_board SET ? `, // ? 여기는 객체 object 칼럼이 없어서 object형태로
     boardUpdate : `UPDATE t_board_board SET ? WHERE no = ? `, // ?가 두개 얘는 배열, 두개의 값이 필요해서
     commentList : `SELECT no, writer, content, created_date 

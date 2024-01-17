@@ -33,6 +33,19 @@ app.get("/boards/:bno", async (request, res) => { // 경로에 콜론 :bno 는 �
 //등록 post (rest 방식) body 속성으로 접근 > body.param 으로 접근
 app.post("/boards", async (request, res) =>{
   let data = request.body.param;
+  // let info = {  //필요한 값만 들고오고 싶을때
+  //   title : data.title,
+  //   writer : data.writer,
+  //   content : data.content
+  // }
+  // let array = ['title', 'writer','content'];
+
+  // for(let filed of array){
+  //   info[filed] = data[filed];
+
+  //   info.filed = data.filed; // 밑에랑 같은 의미이다
+  //   info['filed'] = data['filed'] // 이 방식이 기본이다
+  // }
   res.send((await db.connection("boardInsert", data)));
 
 })

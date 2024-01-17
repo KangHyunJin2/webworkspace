@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+      .blue {
+        color: skyblue;
+      }
+
+      .red {
+        color: indianred;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Where do you want to go?</h1>
+      <h2>Travel Destinations</h2>
+      <p>Plan your next adventure.</p>
+      <ul id="destinations">
+        <li>Rome</li>
+        <li>Paris</li>
+        <li class="blue">Rio</li>
+      </ul>
+    </div>
+    <script>
+      // jQuery 사용문법 $();
+      //   let result = $("#destinations").css("color", "gray");
+      //   console.log(typeof result, result);
+
+      // selector : 탐색
+      // # : id 속성
+      console.log($("#destinations"));
+
+      // . : class 속성
+      console.log($(".blue"));
+
+      // tagName
+      console.log($("h1"));
+
+      // [attribute] : 일반속성
+      console.log($("[name]"));
+
+      // 관계를 기반
+      console.log($("ul > li")); // >를 써서 자식요소로 범위를 좁힘
+
+      /*
+        innerHtml : html()
+        textContent : text()
+        class : addClass(), removeClass(),
+                hasClass(내가 원하는 클래스 값이 있는지 찾는다), toggleClass( on off 내가 현재 가지고 있는 값을 클래스가 들고있으면 삭제 없으면 추가)
+        value : val()
+        style : css()
+        기타 : prop(첫번째로 쓰기) , attr(마음처럼 움직이지 않으면 이거 쓰기) 속성을 다룬다는 점에서는 같다
+      */
+      let result = $("ul").html(); // 얘는 HTMl 태그 까지 다 가져옴
+      console.log(result);
+      result = $("ul").text(); // 얘는 말그대로 텍스트
+      console.log(result);
+      $("h1").text("Hello, jQuery!");
+      $("h2").css("background-color", "green");
+      result = $("h2").css("color");
+      console.log(result);
+      $("p").attr("name", "dumi");
+    </script>
+  </body>
+</html>
