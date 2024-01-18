@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        /*
+         $.ajax('', {
+            // method, default : get
+            type : '',
+            // 서버로 전송할 데이터의 content-type
+            // default : application/x-www-form-urlencoded
+            // JSON    : application/json
+            contentType : '',
+            // 서버로 전송할 데이터 : object => queryString
+            data : {},
+            // 서버로 통신을 하기 직전에 추가작업이 필요한 경우
+            beforeSend : function(xhr){ //하나의 공간을 만들어 놓는곳  잘안쓰긴 함
+                
+            }
+         })
+         .done(result => console.log(result)) //통신이 성공한 경우 (결과에 대해선 보장하진 않음 200번)
+         .done(result => console.log(result))
+         .fail(err => console.log(err)); //통신이 실패한 경우
+
+        */
+       // 전체조회
+       $.ajax('http://localhost:8080/app/emps') // fetch
+       .done(result =>{ // then ||
+        console.log(result);
+       })
+       .fail(err => console.log(err)); // catch
+
+       //new Promise((resolve, reject) => {}); //
+
+       //단건조회
+       $.ajax('http://localhost:8080/app/emps/100')
+       .done(result =>{
+        console.log('Emp Info', result);
+       })
+       .fail(err => console.log(err));
+
+       //등록
+       let info = {
+        lastName : 'Ann',
+        email : 'annkk@naver.com',  // 유니크 제약조건 UNIQE 
+        hireDate : '2024-01-18', // yyyy-MM-dd
+        jobId : 'IT_PROG', // 외래키 제약조건 FK 
+        salary : 1000
+       }
+
+       $.ajax('http://localhost:8080/app/emps', { // delete put은 이방식
+            type : 'post',
+            contentType : 'application/json', // json 형태로 받았으면 data 도 JSON 파싱 해줘야한다
+            data : JSON.stringify(info)
+       })
+       .done(result => {
+        console.log('Integer', result)
+       })
+       .fail(err => console.log(err));
+
+    </script>
+</body>
+</html>

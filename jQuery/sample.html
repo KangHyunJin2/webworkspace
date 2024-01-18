@@ -76,12 +76,12 @@
       </table>
     </div>
     <script>
-      // 1) 헤더를 구성하는 항목 => 별도의 배열
+      // 1) 헤더를 구성하는 항목 => 별도의 배열 이거 중요한 부분임
       let headList = $("th");
       headList = $("#list thead th");
       let headAry = [];
       // each는 첫번째 매개값은 인덱스이다
-      headList.each((idx, tag) => {
+      headList.each((idx, tag) => {   // each 안에서 두개의 차이 알아보기
         // 자바스크립트
         console.log(tag.textContent);
         // jQuery객체로 다시 변환
@@ -144,7 +144,7 @@
                 })
               });
 
-      $('#list tbody > tr').on('click', function(event){
+      $('#list tbody > tr').on('click', function(event){          // jQuery 별도에 반복문이 필요하지 않다
                 $(event.currentTarget).toggleClass('selected');
           });
           
